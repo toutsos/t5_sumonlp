@@ -1,0 +1,18 @@
+Input: Judith was hearing Cnythia.
+Output: ( exists (? H? P? DO? IO ) ( and ( instance? H Human ) ( names "Judith"? H ) ( instance? P Hearing ) ( experiencer? P? H ) ( attribute? DO Female ) ( names "Cnythia"? DO ) ( instance? DO Human ) ( patient? P? DO ) ) )
+
+Input: The film producer will locate a camera.
+Output: ( exists (? H? P? DO? IO ) ( and ( attribute? H FilmProducer ) ( instance? P Locating ) ( agent? P? H ) ( before Now ( BeginFn ( WhenFn? P ) ) ) ( instance? DO Camera ) ( patient? P? DO ) ) )
+
+Input: On Sun , 27 Oct 2024 at 2PM Conan was discovering a home base.
+Output: ( exists (? H? P? DO? IO ) ( and ( instance? T ( HourFn 14 ( DayFn 27 ( MonthFn 10 ( YearFn 2024 ) ) ) ) ) ( during? P? T ) ( instance? H Human ) ( names "Conan"? H ) ( instance? P Discovering ) ( agent? P? H ) ( instance? DO HomeBase ) ( patient? P? DO ) ) )
+
+Input: Guenevere heard the clerical secretary.
+Output: ( exists (? H? P? DO? IO ) ( and ( instance? H Human ) ( names "Guenevere"? H ) ( instance? P Hearing ) ( experiencer? P? H ) ( before ( EndFn ( WhenFn? P ) ) Now ) ( instance? DO ClericalSecretary ) ( patient? P? DO ) ) )
+
+Input: eat a vehicle!
+Output: ( exists (? H? P? DO? IO ) ( and ( instance? P Eating ) ( experiencer? P You ) ( instance? DO Vehicle ) ( objectTransferred? P? DO ) ) )
+
+Input: Sharon is tasting a mouse.
+Output: ( exists (? H? P? DO? IO ) ( and ( instance? H Human ) ( names "Sharon"? H ) ( instance? P Tasting ) ( experiencer? P? H ) ( instance? DO Mouse ) ( patient? P? DO ) ) )
+

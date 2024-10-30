@@ -15,7 +15,7 @@ def predict(model, tokenizer, input_sentences):
     for sentence in input_sentences:
         inputs = tokenize_input(tokenizer, sentence)
         with torch.no_grad():  # Disable gradient calculation
-            outputs = model.generate(inputs['input_ids'], attention_mask=inputs['attention_mask'], max_new_tokens=150)
+            outputs = model.generate(inputs['input_ids'], attention_mask=inputs['attention_mask'], max_new_tokens=300)
         decoded_output = tokenizer.decode(outputs[0], skip_special_tokens=True)
         predictions.append(decoded_output)
     return predictions

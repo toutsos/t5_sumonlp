@@ -20,7 +20,7 @@ def tokenize_data(input_file, output_file, tokenized_output_file):
         input_tokens = tokenizer(input_sentence, return_tensors='pt', padding=True, truncation=True, max_length=512)
         output_tokens = tokenizer(output_logical, return_tensors='pt', padding=True, truncation=True, max_length=512)
 
-        print(f"Input shape: {input_tokens['input_ids'].shape}, Output shape: {output_tokens['input_ids'].shape}")
+        # print(f"Input shape: {input_tokens['input_ids'].shape}, Output shape: {output_tokens['input_ids'].shape}")
 
         tokenized_data.append({
             'input_ids': input_tokens['input_ids'].tolist(),

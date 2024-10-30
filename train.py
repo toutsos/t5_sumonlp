@@ -6,13 +6,13 @@ from torch.utils.data import DataLoader
 import time
 
 # Paths to your data
-input_file = 'input_sentences_500k.txt'
-output_file = 'output_logical_500k.txt'
-tokenized_output_file = 'tokenized_data_small.json'
+input_file = 'data/full_12m_sentences/input_sentences.txt'
+output_file = 'data/full_12m_sentences/output_logical.txt'
+tokenized_output_file = 'data/full_12m_sentences/tokenized_data.json'
 
 # Step 1: Tokenize the data (uncomment if needed)
 start_time = time.time()
-tokenize_data(input_file, output_file, tokenized_output_file)
+# tokenize_data(input_file, output_file, tokenized_output_file)
 print(f"Data tokenization completed in {time.time() - start_time:.2f} seconds.")
 
 # Step 2: Load tokenized data
@@ -32,7 +32,8 @@ print(f"Dataset created successfully in {time.time() - start_time:.2f} seconds."
 
 # Step 4: Create DataLoader
 start_time = time.time()
-train_loader = DataLoader(dataset, batch_size=32, collate_fn=collate_fn, shuffle=True)
+train_loader = DataLoader(dataset, batch_size=32, collate_fn=collate_fn, shuffle=True) # One GPU
+# train_loader = DataLoader(dataset, batch_size=32, collate_fn=collate_fn, shuffle=True, num_workers=8, pin_memory=True) # Multiple GPUs
 print(f"DataLoader created successfully in {time.time() - start_time:.2f} seconds.")
 
 

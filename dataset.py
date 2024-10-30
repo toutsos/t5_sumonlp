@@ -44,8 +44,8 @@ def collate_fn(batch):
         output_attention_mask.append(torch.tensor(item['output_attention_mask']))
 
     # Debugging: Check shapes before padding
-    for i, tensor in enumerate(input_ids):
-        print(f"Input IDs {i} shape: {tensor.shape}")
+    # for i, tensor in enumerate(input_ids):
+    #     print(f"Input IDs {i} shape: {tensor.shape}")
 
     # Pad the sequences to the maximum length in each batch
     input_ids = torch.nn.utils.rnn.pad_sequence(input_ids, batch_first=True, padding_value=0)
@@ -53,7 +53,7 @@ def collate_fn(batch):
     output_ids = torch.nn.utils.rnn.pad_sequence(output_ids, batch_first=True, padding_value=0)
     output_attention_mask = torch.nn.utils.rnn.pad_sequence(output_attention_mask, batch_first=True, padding_value=0)
 
-    print('-----------DONE-----------')
+    # print('-----------DONE-----------')
     return {
         'input_ids': input_ids,
         'attention_mask': attention_mask,

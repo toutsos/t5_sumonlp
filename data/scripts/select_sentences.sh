@@ -29,8 +29,8 @@ else
 fi
 
 # Paths to new files
-train_input_file="input_sentences.txt"  # New input file with last 500k English sentences
-train_output_file="output_logical.txt"  # New output file with last 500k logical forms
+train_input_file="input_sentences.txt"  # New input file
+train_output_file="output_logical.txt"  # New output file
 
 val_input_file="input_sentences_val.txt"
 val_output_file="output_logical_val.txt"
@@ -43,10 +43,10 @@ paste "$input_file" "$output_file" > "$temp_combined_file"
 shuffled_combined_file="shuffled_combined.txt"
 shuf "$temp_combined_file" > "$shuffled_combined_file"
 
-# Step 3: Create training data from the first 500,000 shuffled pairs
+# Step 3: Create training data from the first X shuffled pairs
 head -n "$train_samples" "$shuffled_combined_file" > "train_combined_temp.txt"
 
-# Step 4: Create validation data from the next 500,000 shuffled pairs
+# Step 4: Create validation data from the next All-X shuffled pairs
 # Calculate the ending line for the validation samples
 val_end=$(( train_samples + val_samples ))
 sed -n "$(( train_samples + 1 )),$val_end p" "$shuffled_combined_file" > "val_combined_temp.txt"

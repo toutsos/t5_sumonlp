@@ -49,15 +49,5 @@ def main():
                 f.write(f"Model: {model_name}\nOutput: {prediction}\n\n")
             f.write("=" * 50 + "\n\n")  # Separator between sentences
 
-        # Write outputs to the output file
-    with open('./output_multiple_models.txt', 'w') as f:
-        for sentence in sentences:
-            f.write(f"Input: {sentence}\n\n")
-            for model_name, model in models:
-                # Perform inference for the current sentence
-                prediction = predict(model, tokenizer, [sentence])[0]  # Only one sentence
-                f.write(f"Model: {model_name}\nOutput: {prediction}\n\n")
-            f.write("=" * 50 + "\n\n")  # Separator between sentences
-
 if __name__ == "__main__":
     main()

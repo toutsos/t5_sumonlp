@@ -5,3 +5,5 @@ evaluation/logs/
 output.txt
 output_multiple_models.txt
 
+data/combined_data/combined-eng.txt-0
+data/combined_data/combined-log.txt-0

@@ -10,9 +10,11 @@ The `-0` means that the data have been preprocessed.
 if no `<number_of_suffled_lines>` is specifiied it will use the whole dataset.
 If `<number_of_suffled_lines>` exist as arguments, it will create a training data file with the specified number of sentences.
 
-- In both cases, the script is going to create the `testing` and the `validating` data, where the validating data will be 10% of the testing data.
+- In both cases, the script is going to create the `training` and the `validating` data, where the validating data will be 10% of the testing data.
 
-## Step 2: Train the model
+## Step 2: Train the model & Create the vocabulary DB.
+
+### Train the model:
 
 - Change the paths in the `batch_train.sh` file, and the resources if you want.
 
@@ -32,8 +34,20 @@ tokenize_data(input_file, output_file, tokenized_output_file)
 ```
 to reduce time.
 
+### Create the vocabulary DB.
 
-## Step 3: Validate data
+IF YOU TRAINED A MODEL ON THE **SAME** TRAINING DATA, THEN YOU CAN USE THE `vocabulary.db` CREATED FOR THE PREVIOUS ONE.
+
+Now that the `training data` has been generated, it can be used to create the Vocabulary.db for this model.
+
+- Open the `/data/scripts/create_voc_from_sentences.py` file.
+- Change the `DB_PATH` at line 5, to the location you want to save the DB.
+- Change the `SENTENCE_PATH` at line 6, to the location that the `training data` is.
+- run the batch file `create_voc_from_sentences.sh` located in the scripts folder.
+
+
+
+## Step 3: Validate models
 
 ### Validate one model.
 
